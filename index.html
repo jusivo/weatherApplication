@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <h1 class="title">Weather app</h1>
+                        <input id="searchingInp" class="input" type="text" placeholder="Enter ZIP, city name or coordinates" />
+                      <div class="buttons">
+                        <button id="addBtn" class="button is-primary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+            </nav>
+            <table id="weatherTable" class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>City</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
+                        <th>Wind Speed</th>
+                        <th>Pressure</th>
+                        <th>Sunrise</th>
+                        <th>Sunset</th>
+                        <th>Icon</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    
+                </tbody>
+            </table>
+            <div id="paginationControls" class="pagination gap-2">
+                <button id="prevPage" class="button is-small">Previous</button>
+
+                <button id="nextPage" class="button is-small">Next</button>
+
+            </div>
+        </div>
+      </section>
+
+      <script type="module" src="/src/main.ts"></script></body>
+</html>
