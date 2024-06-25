@@ -19,7 +19,7 @@ export const fetchCity = async (name: string): Promise<Fetching> => {
     );
     */
 
-    if (/^\d+$/.test(name)) {
+    if (!isNaN(Number(name))) {
       // Query is a ZIP code
       response = await axios.get(`${BASE_URL}/weather?zip=${name}&appid=${API_KEY}&units=metric`);
     }

@@ -7,47 +7,64 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
 </head>
 <body>
+
     <section class="section">
         <div class="container">
             <nav class="navbar" role="navigation" aria-label="main navigation">
-
-
                 <div class="navbar-start">
                     <div class="navbar-item">
                         <h1 class="title">Weather app</h1>
-                        <input id="searchingInp" class="input" type="text" placeholder="Enter ZIP, city name or coordinates" />
-                      <div class="buttons">
-                        <button id="addBtn" class="button is-primary">Add</button>
-                      </div>
+                        <input id="searchItems" class="input mb-2" type="text" placeholder="Search" />
                     </div>
-                  </div>
+                    <div class="navbar-item">
+                        <button id="showModal" class="button is-primary">Add</button>
+                    </div>
+
+                </div>
             </nav>
-            <table id="weatherTable" class="table">
+
+            <!-- Modal -->
+            <div id="addForecastModal" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box">
+                        <div class="navbar-start">
+                            <div class="navbar-item">
+                                <input id="searchingInp" class="input mb-1" type="text" placeholder="Enter ZIP, city name or coordinates" />
+                                <button id="addBtn" class="button is-primary">Add forecast</button>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+
+            <table id="weatherTable" class="table is-fullwidth is-striped is-hoverable">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>City</th>
                         <th>Temperature</th>
-                        <th>Humidity</th>
                         <th>Wind Speed</th>
+                        <th>Humidity</th>
                         <th>Pressure</th>
                         <th>Sunrise</th>
                         <th>Sunset</th>
                         <th>Icon</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    
                 </tbody>
             </table>
-            <div id="paginationControls" class="pagination gap-2">
+            <div id="paginationControls" class="pagination is-centered">
                 <button id="prevPage" class="button is-small">Previous</button>
-
                 <button id="nextPage" class="button is-small">Next</button>
-
             </div>
         </div>
-      </section>
+    </section>
 
-      <script type="module" src="/src/main.ts"></script></body>
+    <script type="module" src="/src/main.ts"></script>
+</body>
 </html>

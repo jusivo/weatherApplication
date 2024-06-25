@@ -1,6 +1,6 @@
 import './style.css'
 import {fetchCity} from './Api'
-import { saveToLocalStorage, displayUpdate } from './Fetching/SavingLs'
+import { saveToLocalStorage } from './Fetching/SavingLs'
 import {pagination, displayUpdates} from './Fetching/Updating'
 
 const appWeather = (): void =>{
@@ -20,6 +20,34 @@ const appWeather = (): void =>{
       }
     }
   });
+
+
+  //closing and opening modal window:
+  function closeModal() {
+    const modal = document.getElementById('addForecastModal');
+    if(modal){
+      modal.classList.remove('is-active');
+    }
+  }
+  document.getElementById('showModal')?.addEventListener('click', () => {
+    const modal = document.getElementById('addForecastModal');
+    if (modal) {
+        modal.classList.add('is-active');
+    }
+});
+
+document.querySelector('.modal-close')?.addEventListener('click', () => {
+  closeModal();
+});
+
+document.querySelector('.modal-background')?.addEventListener('click', () => {
+  closeModal();
+});
+
 }
-document.addEventListener("DOMContentLoaded", appWeather);
+document.addEventListener("DOMContentLoaded", ()=>{
+
+  appWeather();
+  displayUpdates();
+});
 //setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
