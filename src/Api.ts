@@ -1,8 +1,8 @@
 import axios from 'axios';
 import Fetching from './Fetching/Fetching'
 import {showError, showPositive} from './MessageHandle'
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-//const API_KEY = "YOUR_API_KEY";
+//const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const API_KEY = 'YOUR_API_KEY';
 const BASE_URL = 'http://api.openweathermap.org/data/2.5';
 
 //fetch data function:
