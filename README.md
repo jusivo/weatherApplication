@@ -1,6 +1,6 @@
 # weatherApplication
 
-## Overview
+## About
 
 This TypeScript project allows users to add desired forecasts using the search bar and the "Add" button. You can type in  Forecasts can be removed by clicking the "Remove" button. The application provides searching capabilities, you can search by name, zip code or coordinates through existing forecasts. Its main purpose is to display added forecasts along with their parameters, including:
 
@@ -36,17 +36,15 @@ This key will be used to fetch weather data in the application.
 1.  Vite: Used for fast development and building of the project.
 2.  npm: Package manager for installing dependencies and managing project scripts.
 3.  Axios: HTTP client for making requests to the OpenWeatherMap API.
+4.  Bulma: For CSS styling.
+5.  TypeScript: For code.
+6.  HTML: for component
 
 ## Contributing
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+No contributions.
 
-Fork the repository on GitHub.
-Clone your forked repository (git clone https://github.com/your-username/weatherApplication.git).
-Create a new branch for your feature or bug fix (git checkout -b feature/my-feature).
-Make your changes and commit them (git commit -am 'Add new feature').
-Push your changes to your fork on GitHub (git push origin feature/my-feature).
-Submit a pull request on the main repository.
-Please follow the Contributor Covenant Code of Conduct in all interactions.
+
+
 
 
 
