@@ -1,16 +1,14 @@
 import axios from 'axios';
 import Fetching from './Fetching/Fetching'
-<<<<<<< Updated upstream
-//saving in local storage functions:
-//export interface 
-=======
->>>>>>> Stashed changes
-const API_KEY = 'adcb2bb2bef9b326ff3cd7ff9c496abf';
-
+import {showError, showPositive} from './MessageHandle'
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+//const API_KEY = "YOUR_API_KEY";
 const BASE_URL = 'http://api.openweathermap.org/data/2.5';
+
 //fetch data function:
 export const fetchCity = async (name: string): Promise<Fetching> => {
   try {
+
     let response;
     if (!isNaN(Number(name))) {
       // Query is a ZIP code
@@ -26,8 +24,6 @@ export const fetchCity = async (name: string): Promise<Fetching> => {
         `${BASE_URL}/weather?q=${name}&appid=${API_KEY}&units=metric`,
       );
     }
-
-
     const data: Fetching = {
       id: response.data.id,
       name: response.data.name,
@@ -40,13 +36,16 @@ export const fetchCity = async (name: string): Promise<Fetching> => {
       sunrise: response.data.sys.sunrise,
        sunset: response.data.sys.sunset,
        zip: name,
-       lat: response.data.coord.lat, //if user will search according to coordinates in main?
+       lat: response.data.coord.lat,
        lon: response.data.coord.lon
        
     };
+    showPositive('Added succesfully');
     return data;
   } catch (error) {
+
     console.error('Error fetching city data:', error);
+    showError('No such city. Please enter correctly');
     throw new Error('Failed to fetch city data');
   }
 };

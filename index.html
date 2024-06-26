@@ -13,7 +13,7 @@
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-start">
                     <div class="navbar-item">
-                        <h1 class="title">Weather app</h1>
+                        <h1 class="title is-3">Weather app</h1>
                         <input id="searchItems" class="input mb-2" type="text" placeholder="Search" />
                     </div>
                     <div class="navbar-item">
@@ -21,9 +21,7 @@
                     </div>
 
                 </div>
-            </nav>
-
-            <!-- Modal -->
+            </nav> 
             <div id="addForecastModal" class="modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
@@ -70,6 +68,14 @@
                 <span id="errorText"></span>
               </div>
         </div>
+        <article class="message is-primary is-hidden" id="positiveMessage">
+            <div class="message-header">
+              <p>Primary</p>
+              <button class="delete" onclick="document.getElementById('positiveMessage').classList.add('is-hidden');" aria-label="delete"></button>
+            </div>
+            <div class="message-body" id="positiveText">
+            </div>
+          </article>
     </section>
 
     <script type="module" src="/src/main.ts"></script>
