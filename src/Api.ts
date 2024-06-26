@@ -1,24 +1,19 @@
 import axios from 'axios';
 import Fetching from './Fetching/Fetching'
+<<<<<<< Updated upstream
 //saving in local storage functions:
 import { saveToLocalStorage, displayUpdate } from './Fetching/SavingLs'
 
 //export interface 
+=======
+>>>>>>> Stashed changes
 const API_KEY = 'adcb2bb2bef9b326ff3cd7ff9c496abf';
-//const API_KEY =import.meta.env.WEATHER_API;
 
 const BASE_URL = 'http://api.openweathermap.org/data/2.5';
-
-//creating fetch function to 
-
+//fetch data function:
 export const fetchCity = async (name: string): Promise<Fetching> => {
   try {
     let response;
-    /*let response = await axios.get(
-      `${BASE_URL}/weather?q=${name}&appid=${API_KEY}`,
-    );
-    */
-
     if (!isNaN(Number(name))) {
       // Query is a ZIP code
       response = await axios.get(`${BASE_URL}/weather?zip=${name}&appid=${API_KEY}&units=metric`);
@@ -30,9 +25,10 @@ export const fetchCity = async (name: string): Promise<Fetching> => {
     } 
     else{
       response = await axios.get(
-        `${BASE_URL}/weather?q=${name}&appid=${API_KEY}`,
+        `${BASE_URL}/weather?q=${name}&appid=${API_KEY}&units=metric`,
       );
     }
+
 
     const data: Fetching = {
       id: response.data.id,

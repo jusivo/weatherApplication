@@ -1,5 +1,4 @@
 import weather from './Fetching'
-import {displayUpdates} from './Updating'
 export  function saveToLocalStorage(weather: weather): void {
     //store and retrieve data from the browser's localStorage.
     const savedForecasts: weather[] = JSON.parse(localStorage.getItem('weatherForecasts') || '[]');

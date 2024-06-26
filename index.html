@@ -62,6 +62,11 @@
                 <button id="prevPage" class="button is-small">Previous</button>
                 <button id="nextPage" class="button is-small">Next</button>
             </div>
+            
+            <div id="errorMessage" class="notification is-danger is-hidden">
+                <button class="delete" onclick="document.getElementById('errorMessage').classList.add('is-hidden');"></button>
+                <span id="errorText"></span>
+              </div>
         </div>
     </section>
 

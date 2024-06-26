@@ -14,6 +14,9 @@
 a:hover {
   color: #535bf2;
 }
+.is-hidden {
+  display: none;
+}
 .mb-2 {
   margin-bottom: 1rem;
 }
