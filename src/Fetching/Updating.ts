@@ -1,7 +1,8 @@
-//10 irasu per viena puslapi:
+//10 recs per page
 import weather from './Fetching'
-import {removeFromLs, saveToLocalStorage} from './SavingLs'
+import {removeFromLs} from './SavingLs'
 const per_Page = 10;
+//will change its value and thats why let
 let currentPage = 1;
 
 export function pagination(recs:number):void{
@@ -58,14 +59,24 @@ export function pagination(recs:number):void{
       }
 }
 
-export  function displayUpdates(page = 1): void{
+export  function displayUpdates(page = 1, searchTerm?: string): void{
     const weatherList: weather[] = JSON.parse(localStorage.getItem('weatherForecasts') || '[]');
     const tableBody = document.getElementById('tableBody');
     if (tableBody) {
+      let filtered = weatherList;
+      //seearching in main page :
+      if(searchTerm){
+        filtered = weatherList.filter(weather=> 
+          weather.name.toLowerCase().includes(searchTerm!)|| weather.
+          country.toLowerCase()
+          .includes(searchTerm)|| weather.zip.toString().includes(searchTerm)
+           || `${weather.lat},${weather.lon}`.includes(searchTerm))
 
-        const starting = (Number(currentPage)-1) * Number(per_Page);
+      }
+
+        const starting = (Number(page)-1) * Number(per_Page);
         const ending = starting + Number(per_Page);
-        const paginated = weatherList.slice(starting, ending);
+        const paginated = filtered.slice(starting, ending);
         tableBody.innerHTML = paginated.map((weather, index) => `
           <tr>
             <td>${index + 1}</td>
@@ -77,7 +88,7 @@ export  function displayUpdates(page = 1): void{
             <td>${new Date(weather.sunrise * 1000).toLocaleTimeString()}</td>
             <td>${new Date(weather.sunset * 1000).toLocaleTimeString()}</td>
             <td><img src="http://openweathermap.org/img/w/${weather.icon}.png" alt="Weather Icon"></td>
-            <td><button class="button is-danger is-dark" data-index="${starting + index}">Remove</button></td>
+            <td><button class="button is-danger is-dark" data-filtered-index="${index}">Remove</button></td>
           </tr>
         `).join('');
 
@@ -85,17 +96,16 @@ export  function displayUpdates(page = 1): void{
         document.querySelectorAll('.button.is-danger.is-dark').forEach(btn=>{
           btn.addEventListener('click', (Event)=>{
             const target = Event.target as HTMLButtonElement;
-            const index = parseInt(target.dataset.index!, 10);
-            //const index = parseInt(id.index!, 10);
+            const filter = parseInt(target.dataset.filteredIndex!, 10);
+            const index = weatherList.indexOf(filtered[filter]);
             removeFromLs(index);
-            displayUpdates(currentPage);
-            
+            displayUpdates(currentPage, searchTerm);
             
           })
         })
 
         
-        pagination(weatherList.length);
+        pagination(filtered.length);
 
       }
   }

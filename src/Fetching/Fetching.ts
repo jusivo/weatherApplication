@@ -9,5 +9,8 @@ export default interface WeatherData {
     sunrise: number,
     sunset: number,
     icon:string,
-    city_user?:boolean
+    city_user?:boolean,
+    zip:string,
+    lat:number, 
+    lon:number
 }

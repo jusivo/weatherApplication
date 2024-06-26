@@ -2,8 +2,6 @@ import axios from 'axios';
 import Fetching from './Fetching/Fetching'
 <<<<<<< Updated upstream
 //saving in local storage functions:
-import { saveToLocalStorage, displayUpdate } from './Fetching/SavingLs'
-
 //export interface 
 =======
 >>>>>>> Stashed changes
@@ -40,7 +38,11 @@ export const fetchCity = async (name: string): Promise<Fetching> => {
       pressure: response.data.main.pressure,
       icon: response.data.weather[0].icon,
       sunrise: response.data.sys.sunrise,
-    sunset: response.data.sys.sunset,
+       sunset: response.data.sys.sunset,
+       zip: name,
+       lat: response.data.coord.lat, //if user will search according to coordinates in main?
+       lon: response.data.coord.lon
+       
     };
     return data;
   } catch (error) {
