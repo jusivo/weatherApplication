@@ -1,7 +1,8 @@
 import './style.css'
 import {fetchCity} from './Api'
 import { saveToLocalStorage } from './Fetching/SavingLs'
-import {pagination, displayUpdates} from './Fetching/Updating'
+import {displayUpdates} from './Fetching/Updating'
+import { searchResults } from './Fetching/SearchBar';
 
 const appWeather = (): void =>{
   document.getElementById('addBtn')?.addEventListener('click', async () => {
@@ -45,9 +46,11 @@ document.querySelector('.modal-background')?.addEventListener('click', () => {
 });
 
 }
+
 document.addEventListener("DOMContentLoaded", ()=>{
 
   appWeather();
   displayUpdates();
+  searchResults();
 });
 //setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)

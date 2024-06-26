@@ -1,8 +1,6 @@
 import axios from 'axios';
 import Fetching from './Fetching/Fetching'
 //saving in local storage functions:
-import { saveToLocalStorage, displayUpdate } from './Fetching/SavingLs'
-
 //export interface 
 const API_KEY = 'adcb2bb2bef9b326ff3cd7ff9c496abf';
 //const API_KEY =import.meta.env.WEATHER_API;
@@ -44,7 +42,11 @@ export const fetchCity = async (name: string): Promise<Fetching> => {
       pressure: response.data.main.pressure,
       icon: response.data.weather[0].icon,
       sunrise: response.data.sys.sunrise,
-    sunset: response.data.sys.sunset,
+       sunset: response.data.sys.sunset,
+       zip: name,
+       lat: response.data.coord.lat, //if user will search according to coordinates in main?
+       lon: response.data.coord.lon
+       
     };
     return data;
   } catch (error) {
