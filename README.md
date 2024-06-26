@@ -42,6 +42,9 @@ This key will be used to fetch weather data in the application.
 
 ## Contributing
 No contributions.
+## LICENSE
+This project is licensed under the MIT License
+
 
 
 
