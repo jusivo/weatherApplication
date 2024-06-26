@@ -4,13 +4,13 @@
 
 This TypeScript project allows users to add desired forecasts using the search bar and the "Add" button. You can type in  Forecasts can be removed by clicking the "Remove" button. The application provides searching capabilities, you can search by name, zip code or coordinates through existing forecasts. Its main purpose is to display added forecasts along with their parameters, including:
 
-City name and country (or initials)
-Temperature
-Humidity
-Wind speed
-Pressure
-Time of sunrise
-Time of sunset
+1. City name and country (or initials)
+2. Temperature
+3. Humidity
+4. Wind speed
+5. Pressure
+6. Time of sunrise
+7. Time of sunset
 This project was created to provide a convenient weather application that utilizes the Axios library to fetch weather information from the OpenWeatherMap API. It aims to simplify weather forecasting and make it accessible with a user-friendly interface.
 
 ## Install and use
@@ -24,7 +24,7 @@ Then, navigate to the project directory: cd weatherApplication
 5. Now you can access with this address: http://localhost:8080
 
 # Gaining API_Key and using it in code:
-To use the weather application, you need to set up your API key from OpenWeatherMap. Follow these steps to get started:
+To use the weather application, you need to set up your API key from https://openweathermap.org. Follow these steps to get started:
 1. Visit OpenWeatherMap and sign up for a free account.
 2. Once logged in, navigate to your account dashboard or API keys section to generate a new API key.
 3. Copy the API key and replace the "YOUR_API_KEY" placeholder in the "Api.ts in this code in the beggining: "const API_KEY = "YOUR_API_KEY";
